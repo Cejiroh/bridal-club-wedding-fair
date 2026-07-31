@@ -52,15 +52,17 @@
   /* ---------- HERO ---------- */
   .hero{
     position:relative;
-    min-height:100svh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width:100%;
     overflow:hidden;
-    background:
-      radial-gradient(ellipse at 50% -10%, #fffaf2 0%, var(--cream) 45%, var(--cream-deep) 100%);
-    padding: 90px 24px 60px;
+    background:var(--cream);
+    padding:0;
     text-align:center;
+  }
+  .hero img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
   }
   .hero-art{
     position:absolute;
@@ -592,36 +594,12 @@
 <body>
 
 <section class="hero">
+  <img src="hero.jpg" alt="The Bridal Club Wedding Fair hero banner">
   <div class="hero-art" aria-hidden="true">
     <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice">
     </svg>
     <div class="petal-field" id="heroPetals"></div>
   </div>
-
-  <div class="hero-content">
-    <span class="hero-pill">Sign up for FREE ENTRANCE!</span>
-    <h1>The Bridal Club<br><em>Wedding Fair</em></h1>
-    <p class="hero-sub">Free Entrance for those who register now until September 6, 2026</p>
-
-    <div class="hero-meta">
-      <div class="meta-chip">
-        <span class="lbl">Date</span>
-        <span class="val">Sept 12–13, 2026</span>
-      </div>
-      <div class="meta-chip">
-        <span class="lbl">Venue</span>
-        <span class="val">SM East Ortigas</span>
-      </div>
-    </div>
-
-    <a href="#register" class="hero-cta">
-      Register for Free Entrance
-      <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <p class="hero-note">Registration closes September 6, 2026</p>
-  </div>
-
-  <div class="scroll-cue"><span class="stem"></span>Scroll to register</div>
 </section>
 
 <section class="form-section" id="register">
