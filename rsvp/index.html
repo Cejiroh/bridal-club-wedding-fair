@@ -297,7 +297,7 @@
   .q-required{ color:var(--wine); }
   .q-hint{ font-size:12.5px; color:var(--ink-soft); margin-top:3px; font-style:italic; }
 
-  input[type=text], input[type=email], input[type=tel], select, textarea{
+  input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea{
     width:100%;
     margin-top:14px;
     padding:14px 16px;
@@ -693,17 +693,7 @@
       <div class="q-group">
         <span class="q-number">07</span>
         <label class="q-label">When is your event? <span class="q-required">*</span></label>
-        <select name="event_timing" required>
-          <option value="" disabled selected>Select a timeframe</option>
-          <option>Sept–Dec 2026</option>
-          <option>Jan–June 2027</option>
-          <option>July–Dec 2027</option>
-          <option>Jan–June 2028</option>
-          <option>July–Dec 2028</option>
-          <option>Jan–June 2029</option>
-          <option>July–Dec 2029</option>
-          <option>2030 Onwards</option>
-        </select>
+        <input type="date" name="event_timing" id="eventDate" required>
       </div>
 
       <div class="q-group">
@@ -934,6 +924,16 @@
   mobile.addEventListener('input', function(){
     this.value = this.value.replace(/\D/g,'').slice(0,10);
   });
+
+  // Event date: prevent choosing past dates
+  const eventDateInput = document.getElementById('eventDate');
+  if (eventDateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    eventDateInput.min = `${yyyy}-${mm}-${dd}`;
+  }
 
   // Conditional "Others" fields
   function bindOther(selectId, wrapId){
